@@ -50,7 +50,7 @@
     <Compile Include="ChatClientGUI.Designer.cs">
       <DependentUpon>ChatClientGUI.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="ChatClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="ChatClientGUI.resx">
       <DependentUpon>ChatClientGUI.cs</DependentUpon>

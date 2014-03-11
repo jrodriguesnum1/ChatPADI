@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ChatLib;
 
 namespace ChatClient
 {
-    static class Program
+    static class Client
     {
         /// <summary>
         /// The main entry point for the application.
@@ -17,6 +18,14 @@ namespace ChatClient
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ChatClientForm());
+        }
+    }
+
+    public class ChatClient : MarshalByRefObject, IChatClient
+    {
+        public bool SendMsgToClient(string msg)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace ChatLib
 {
-    public class Class1
+    public interface IChatServer
     {
+        public bool Join(string nickname, string url);
+        public bool SendMsgToServer(string msg);
+    }
+
+    public interface IChatClient
+    {
+        public bool SendMsgToClient(string msg);
     }
 }
