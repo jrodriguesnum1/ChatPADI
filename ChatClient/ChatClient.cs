@@ -23,7 +23,7 @@ namespace ChatClient
 
     public class ChatClient : MarshalByRefObject, IChatClient
     {
-        public bool SendMsgToClient(string msg)
+        public void SendMsgToClient(string msg)
         {
             throw new NotImplementedException();
         }

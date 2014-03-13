@@ -8,12 +8,12 @@ namespace ChatLib
 {
     public interface IChatServer
     {
-        public bool Join(string nickname, string url);
-        public bool SendMsgToServer(string msg);
+        public void Join(string nickname, string url);
+        public void SendMsgToServer(string nickname, string msg);
     }
 
     public interface IChatClient
     {
-        public bool SendMsgToClient(string msg);
+        public void SendMsgToClient(string msg);
     }
 }
