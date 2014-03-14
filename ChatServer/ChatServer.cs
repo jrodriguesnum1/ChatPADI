@@ -42,7 +42,7 @@ namespace ChatServer
                 if (!userPair.Key.Equals(nickname))
                 {
                     IChatClient client = (IChatClient) Activator.GetObject(typeof(IChatClient), (string) userPair.Value);
-                    client.SendMsgToClient(msg);
+                    client.SendMsgToClient((string) userPair.Key, msg);
                 }
             }
         }

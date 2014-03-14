@@ -14,6 +14,6 @@ namespace ChatLib
 
     public interface IChatClient
     {
-        public void SendMsgToClient(string msg);
+        public void SendMsgToClient(string nickname, string msg);
     }
 }
