@@ -7,6 +7,7 @@ using ChatLib;
 
 namespace ChatClient
 {
+    
     static class Client
     {
         /// <summary>
@@ -23,9 +24,39 @@ namespace ChatClient
 
     public class ChatClient : MarshalByRefObject, IChatClient
     {
-        public void SendMsgToClient(string msg)
+        public static event EventHandler<ReceivedMsgEventArgs> ReceivedMsg;
+
+        public void SendMsgToClient(string nickname, string msg)
         {
-            throw new NotImplementedException();
+            EventHandler<ReceivedMsgEventArgs> rcvMsgHandle = ReceivedMsg;
+
+            if (rcvMsgHandle != null)
+            {
+                rcvMsgHandle(this, new ReceivedMsgEventArgs(nickname, msg));
+            }
+
+        }
+    }
+
+    public class ReceivedMsgEventArgs : EventArgs
+    {
+        private string nickname;
+        private string msg;
+
+        public ReceivedMsgEventArgs(string nickname, string msg)
+        {
+            this.nickname = nickname;
+            this.msg = msg;
+        }
+
+        public string Nickname
+        {
+            get { return this.nickname; }
+        }
+
+        public string Msg
+        {
+            get { return this.msg; }
         }
     }
 }

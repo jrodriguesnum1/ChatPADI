@@ -25,7 +25,7 @@ namespace ChatServer
 
     public class ChatServer : MarshalByRefObject, IChatServer
     {
-        private Hashtable users = new Hashtable();
+        private Dictionary<string, string> users = new Dictionary<string, string>();
 
         public void Join(string nickname, string url)
         {
@@ -37,12 +37,12 @@ namespace ChatServer
             TcpChannel channel = new TcpChannel();
             ChannelServices.RegisterChannel(channel, true);
 
-            foreach (DictionaryEntry userPair in users)
+            foreach (KeyValuePair<string, string> userPair in users)
             {
                 if (!userPair.Key.Equals(nickname))
                 {
-                    IChatClient client = (IChatClient) Activator.GetObject(typeof(IChatClient), (string) userPair.Value);
-                    client.SendMsgToClient((string) userPair.Key, msg);
+                    IChatClient client = (IChatClient) Activator.GetObject(typeof(IChatClient), userPair.Value);
+                    client.SendMsgToClient(userPair.Key, msg);
                 }
             }
         }
