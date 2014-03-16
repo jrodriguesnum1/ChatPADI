@@ -38,13 +38,27 @@ namespace ChatServer
 
         public void SendMsgToServer(string nickname, string msg)
         {
+            List<string> markedToRemove = new List<string>();
+
             foreach (KeyValuePair<string, string> userPair in users)
             {
                 if (!userPair.Key.Equals(nickname))
                 {
-                    IChatClient client = (IChatClient) Activator.GetObject(typeof(IChatClient), userPair.Value);
-                    client.SendMsgToClient(nickname, msg);
+                    try
+                    {
+                        IChatClient client = (IChatClient)Activator.GetObject(typeof(IChatClient), userPair.Value);
+                        client.SendMsgToClient(nickname, msg);
+                    }
+                    catch (Exception)
+                    {
+                        markedToRemove.Add(userPair.Key);
+                    }
                 }
+            }
+
+            foreach (string nick in markedToRemove)
+            {
+                users.Remove(nick);
             }
         }
     }
