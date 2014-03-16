@@ -15,9 +15,13 @@ namespace ChatServer
     {
         static void Main(string[] args)
         {
-            TcpChannel channel = new TcpChannel(9999);
-            ChannelServices.RegisterChannel(channel, true);
-            RemotingConfiguration.RegisterWellKnownServiceType(typeof(ChatServer), "ChatServer", WellKnownObjectMode.Singleton);
+            TcpChannel channelServ = (TcpChannel)TcpChannelGenerator.GetChannel(Constants.SERVICE_SERV_PORT, true);
+            ChannelServices.RegisterChannel(channelServ, true);
+            RemotingConfiguration.RegisterWellKnownServiceType(typeof(ChatServer), Constants.REMOTE_SERV_OBJ_NAME, WellKnownObjectMode.Singleton);
+
+            TcpChannel channelClt = new TcpChannel();
+            ChannelServices.RegisterChannel(channelClt, true);
+
             Console.WriteLine("Press <enter> to exit");
             Console.ReadLine();
         }
@@ -34,15 +38,12 @@ namespace ChatServer
 
         public void SendMsgToServer(string nickname, string msg)
         {
-            TcpChannel channel = new TcpChannel();
-            ChannelServices.RegisterChannel(channel, true);
-
             foreach (KeyValuePair<string, string> userPair in users)
             {
                 if (!userPair.Key.Equals(nickname))
                 {
                     IChatClient client = (IChatClient) Activator.GetObject(typeof(IChatClient), userPair.Value);
-                    client.SendMsgToClient(userPair.Key, msg);
+                    client.SendMsgToClient(nickname, msg);
                 }
             }
         }

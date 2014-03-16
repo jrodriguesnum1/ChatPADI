@@ -12,21 +12,35 @@ EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DAE743FF-FA5C-49D8-9A7D-8B3C4C1F97F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DAE743FF-FA5C-49D8-9A7D-8B3C4C1F97F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAE743FF-FA5C-49D8-9A7D-8B3C4C1F97F3}.Debug|x86.ActiveCfg = Debug|x86
+		{DAE743FF-FA5C-49D8-9A7D-8B3C4C1F97F3}.Debug|x86.Build.0 = Debug|x86
 		{DAE743FF-FA5C-49D8-9A7D-8B3C4C1F97F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DAE743FF-FA5C-49D8-9A7D-8B3C4C1F97F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAE743FF-FA5C-49D8-9A7D-8B3C4C1F97F3}.Release|x86.ActiveCfg = Release|x86
+		{DAE743FF-FA5C-49D8-9A7D-8B3C4C1F97F3}.Release|x86.Build.0 = Release|x86
 		{1FA2137F-9DD2-4D2E-A644-A16863B2704B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1FA2137F-9DD2-4D2E-A644-A16863B2704B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FA2137F-9DD2-4D2E-A644-A16863B2704B}.Debug|x86.ActiveCfg = Debug|x86
+		{1FA2137F-9DD2-4D2E-A644-A16863B2704B}.Debug|x86.Build.0 = Debug|x86
 		{1FA2137F-9DD2-4D2E-A644-A16863B2704B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1FA2137F-9DD2-4D2E-A644-A16863B2704B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FA2137F-9DD2-4D2E-A644-A16863B2704B}.Release|x86.ActiveCfg = Release|x86
+		{1FA2137F-9DD2-4D2E-A644-A16863B2704B}.Release|x86.Build.0 = Release|x86
 		{353D9A72-D37D-4837-9FC7-37D83737D87B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{353D9A72-D37D-4837-9FC7-37D83737D87B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{353D9A72-D37D-4837-9FC7-37D83737D87B}.Debug|x86.ActiveCfg = Debug|x86
+		{353D9A72-D37D-4837-9FC7-37D83737D87B}.Debug|x86.Build.0 = Debug|x86
 		{353D9A72-D37D-4837-9FC7-37D83737D87B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{353D9A72-D37D-4837-9FC7-37D83737D87B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{353D9A72-D37D-4837-9FC7-37D83737D87B}.Release|x86.ActiveCfg = Release|x86
+		{353D9A72-D37D-4837-9FC7-37D83737D87B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
