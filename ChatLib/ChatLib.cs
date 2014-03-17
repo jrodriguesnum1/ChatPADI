@@ -46,6 +46,6 @@ namespace ChatLib
         public const int SERVICE_CLIE_PORT = 8888;
         public const string REMOTE_SERV_OBJ_NAME = "ChatServer";
         public const string REMOTE_CLIE_OBJ_NAME = "ChatClient";
-        public const string SERVER_URL = "tcp://192.168.1.85:9999/ChatServer";
+        public const string SERVER_URL = "tcp://localhost:9999/ChatServer";
     }
 }
