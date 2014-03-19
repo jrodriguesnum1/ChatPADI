@@ -12,13 +12,13 @@ namespace ChatLib
 {
     public interface IChatServer
     {
-        void Join(string nickname, string url);
-        void SendMsgToServer(string nickname, string msg);
+        void join(string nickname, string url);
+        void sendMsgToServer(string nickname, string msg);
     }
 
     public interface IChatClient
     {
-        void SendMsgToClient(string nickname, string msg);
+        void sendMsgToClient(string nickname, string msg);
     }
 
     public static class Constants

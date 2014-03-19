@@ -37,18 +37,18 @@ namespace ChatClient
 
             server = (IChatServer)Activator.GetObject(typeof(IChatServer), Constants.SERVER_URL);
 
-            server.Join(e.Nickname, URLGenerator.generate(e.Port, Constants.REMOTE_CLIE_OBJ_NAME));
+            server.join(e.Nickname, URLGenerator.generate(e.Port, Constants.REMOTE_CLIE_OBJ_NAME));
         }
 
         static void SendMsgToServer(object sender, MsgEventArgs e)
         {
-            server.SendMsgToServer(e.Nickname, e.Msg);
+            server.sendMsgToServer(e.Nickname, e.Msg);
         }
     }
 
     public class ChatClient : MarshalByRefObject, IChatClient
     {
-        public void SendMsgToClient(string nickname, string msg)
+        public void sendMsgToClient(string nickname, string msg)
         {
             Client.guiForm.addMsgToConv(nickname, msg);
         }

@@ -28,12 +28,12 @@ namespace ChatServer
     {
         private Dictionary<string, string> users = new Dictionary<string, string>();
 
-        public void Join(string nickname, string url)
+        public void join(string nickname, string url)
         {
             this.users.Add(nickname, url);
         }
 
-        public void SendMsgToServer(string nickname, string msg)
+        public void sendMsgToServer(string nickname, string msg)
         {
             List<string> markedToRemove = new List<string>();
 
@@ -44,7 +44,7 @@ namespace ChatServer
                     try
                     {
                         IChatClient client = (IChatClient)Activator.GetObject(typeof(IChatClient), userPair.Value);
-                        client.SendMsgToClient(nickname, msg);
+                        client.sendMsgToClient(nickname, msg);
                     }
                     catch (Exception)
                     {
