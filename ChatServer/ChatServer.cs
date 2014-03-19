@@ -15,12 +15,9 @@ namespace ChatServer
     {
         static void Main(string[] args)
         {
-            TcpChannel channelServ = (TcpChannel)TcpChannelGenerator.GetChannel(Constants.SERVICE_SERV_PORT, true);
+            TcpChannel channelServ = new TcpChannel(Constants.SERVICE_SERV_PORT);
             ChannelServices.RegisterChannel(channelServ, true);
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(ChatServer), Constants.REMOTE_SERV_OBJ_NAME, WellKnownObjectMode.Singleton);
-
-            TcpChannel channelClt = new TcpChannel();
-            ChannelServices.RegisterChannel(channelClt, true);
 
             Console.WriteLine("Press <enter> to exit");
             Console.ReadLine();

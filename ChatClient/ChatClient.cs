@@ -31,12 +31,10 @@ namespace ChatClient
 
         static void Join(object sender, JoinEventArgs e)
         {
-            TcpChannel channelServ = (TcpChannel)TcpChannelGenerator.GetChannel(Convert.ToInt32(e.Port), true);
+            TcpChannel channelServ = new TcpChannel(Convert.ToInt32(e.Port));
             ChannelServices.RegisterChannel(channelServ, true);
             RemotingConfiguration.RegisterWellKnownServiceType(typeof(ChatClient), Constants.REMOTE_CLIE_OBJ_NAME, WellKnownObjectMode.Singleton);
 
-            TcpChannel channelClt = new TcpChannel();
-            ChannelServices.RegisterChannel(channelClt, true);
             server = (IChatServer)Activator.GetObject(typeof(IChatServer), Constants.SERVER_URL);
 
             server.Join(e.Nickname, URLGenerator.generate(e.Port, Constants.REMOTE_CLIE_OBJ_NAME));
